@@ -1,9 +1,15 @@
 { pkgs, ... }:
 {
-  programs.home-manager.enable = true;
-  #imports = [
-  #  ../modules/desktop/hyprland.nix
-  #];
+  #programs.home-manager.enable = true;
+  # programs = {
+  #   home-manager.enable = true;
+  #   quickshell = {
+  #     enable = true;
+  #     #activeConfig = "../modules/desktop/quickshell/"
+  # };
+  imports = [
+    ../modules/desktop/hyprland.nix
+  ];
   home = {
     stateVersion = "25.11";
     username = "sora";
