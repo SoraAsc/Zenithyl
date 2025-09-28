@@ -1,12 +1,6 @@
 { pkgs, ... }:
 {
   programs.home-manager.enable = true;
-  # programs = {
-  #   home-manager.enable = true;
-  #   quickshell = {
-  #     enable = true;
-  #     #activeConfig = "../modules/desktop/quickshell/"
-  # };
   imports = [
     ../modules/desktop/hyprland.nix
   ];

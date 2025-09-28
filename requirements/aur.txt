@@ -1,0 +1,4 @@
+wlogout
+qview
+vivaldi
+quickshell
