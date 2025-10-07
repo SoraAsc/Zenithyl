@@ -1,3 +1,4 @@
+sudo pacman -Syu --needed - < requirements/hypr-packages.txt
 sudo pacman -Syu --needed - < requirements/packages.txt
 
 while read pkg; do

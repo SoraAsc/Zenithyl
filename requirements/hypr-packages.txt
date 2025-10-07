@@ -1,0 +1,10 @@
+hyprland
+hyprlock
+hypridle
+hyprcursor
+hyprpicker
+qt5-wayland
+qt6-wayland
+xdg-desktop-portal-hyprland
+xdg-desktop-portal-gtk
+polkit-kde-agent
