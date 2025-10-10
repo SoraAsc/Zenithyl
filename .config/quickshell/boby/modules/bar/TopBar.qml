@@ -61,10 +61,15 @@ Scope {
 
       // Bar Container
       ShadowContainer {
+        anchors.top: parent.top
         anchors.left: parent.left
         anchors.right: parent.right
-        anchors.top: parent.top
-        anchors.margins: Core.Theme.size["sm"]
+
+        anchors.topMargin: Core.Theme.size["sm"]
+        //anchors.bottomMargin: Core.Theme.size["sm"]
+        anchors.leftMargin: 20
+        anchors.rightMargin: 20
+        
         height: Core.Settings.barHeight
         shadowOffsetY: 2
         shadowBlur: 10
@@ -72,7 +77,7 @@ Scope {
         RowLayout {
           x: 20
           anchors.verticalCenter: parent.verticalCenter
-          spacing: parent.width / 3 - 45
+          spacing: parent.width / 3.25
           ShadowContainer {
             width: 32
             height: 32
