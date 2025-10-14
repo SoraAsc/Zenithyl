@@ -30,5 +30,9 @@ Singleton {
     if (factor === "full") return elementHeight / 2
     return size[factor] !== undefined ? size[factor] : 0
   }
+
+  function getBorderSize(has_border, border_size) {
+    return has_border ? Math.max(border_size, 1) : 0
+  }
 }
 

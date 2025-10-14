@@ -10,10 +10,6 @@ RowLayout {
   id: root
   spacing: 1
 
-  /*Overlay.NetworkOverlay {
-    posX: networkC.mapToGlobal(networkC.x, networkC.y)
-  }*/
-
   MouseArea {
     id: networkC
     width: 40
@@ -83,11 +79,9 @@ RowLayout {
       }
     }
   }
-
   Overlay.NetworkOverlay {
-    property var pos: mapToGlobal(networkIcon.x, networkIcon.y)
-    posX: pos.x
-    posY: pos.y
+    posX: root.parent.x + root.x + networkC.x + (networkC.width / 2) + (root.width / 2) - (implicitWidth / 2)
+    //posX: root.parent.x + root.x + configurationC.x + (configurationC.width / 2) + (root.width / 2) - (implicitWidth / 2)
+    posY: Core.Settings.barHeight + Core.Theme.size["sm"] - 0.55
   }
-
 }

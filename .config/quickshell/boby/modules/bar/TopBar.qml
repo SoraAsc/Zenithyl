@@ -66,7 +66,6 @@ Scope {
         anchors.right: parent.right
 
         anchors.topMargin: Core.Theme.size["sm"]
-        //anchors.bottomMargin: Core.Theme.size["sm"]
         anchors.leftMargin: 20
         anchors.rightMargin: 20
         

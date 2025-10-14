@@ -1,20 +1,37 @@
 import Quickshell
 import QtQuick
 import qs.core as Core
-  PopupWindow {
-    id: root
-    property real posX: 0
-    property real posY: 0
-    Component.onCompleted: console.log(posX)
-    anchor.window: Core.Settings.topbarPanel
-    anchor.rect.x: posX//300
-    anchor.rect.y: posY//-480
-    implicitWidth: 50
-    implicitHeight: 50
-    visible: false
-    color: "white"
-  }
-  //color: "transparent"
-  //exclusionMode: ExclusionMode.Ignore
-  //visible: true   // depois trocar pelo Core.Settings.networkMenuOpen
+import qs.components
 
+PopupWindow {
+  id: root
+  property real posX: 0
+  property real posY: 0
+  anchor.window: Core.Settings.topbarPanel
+  anchor.rect.x: posX
+  anchor.rect.y: posY
+  implicitWidth: 400
+  implicitHeight: 450
+  visible: true
+  color: "transparent"
+  ShadowContainer {
+    anchors.top: parent.top
+    anchors.left: parent.left
+    anchors.right: parent.right
+    height: parent.height - 10
+    borderWidth: 1
+    borderColor: Core.Theme.colors.accent
+    shadowOffsetY: 2
+    shadowBlur: 10
+    radiusCorners: ({
+      bottomLeft: "lg",
+      bottomRight: "lg"
+    })
+    enabledBorders: ({
+      top: false,
+      bottom: true,
+      left: true,
+      right: true,
+    })
+  }
+}
