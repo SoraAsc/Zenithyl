@@ -69,6 +69,7 @@ RowLayout {
       anchors.fill: parent
       radiusSize: "full"
       borderWidth: 0
+      enabledBorders: ({})
       shadowBlur: 40
       anchors.verticalCenter: parent.verticalCenter
       Text {

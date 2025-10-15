@@ -16,6 +16,8 @@ RowLayout {
     height: 40
     hoverEnabled: true
     cursorShape: Qt.PointingHandCursor
+    onEntered: Core.Settings.networkMenuOpen = true
+    onExited: closeNetworkTimer.start()
     onClicked: {
       if(Core.Settings.networkMenuOpen) Core.Settings.closeAll()
       else Core.Settings.networkMenuOpen = true
@@ -80,8 +82,23 @@ RowLayout {
     }
   }
   Overlay.NetworkOverlay {
-    posX: root.parent.x + root.x + networkC.x + (networkC.width / 2) + (root.width / 2) - (implicitWidth / 2)
+    id: networkOverlay
+    //posX: root.parent.x + root.x + networkC.x + (networkC.width / 2) + (root.width / 2) - (implicitWidth / 2)
+    posX: root.parent.x + root.x + networkC.x + (networkC.width / 2) + (root.width / 2) - (implicitWidth - 15)
+    //posX: root.parent.x + root.x + configurationC.x + (configurationC.width / 2) + (root.width / 2) - (implicitWidth - 30)
     //posX: root.parent.x + root.x + configurationC.x + (configurationC.width / 2) + (root.width / 2) - (implicitWidth / 2)
     posY: Core.Settings.barHeight + Core.Theme.size["sm"] - 0.55
+    closeNetworkTimer: closeNetworkTimer
+  }
+
+  Timer {
+    id: closeNetworkTimer
+    interval: 150
+    repeat: false
+    onTriggered: {
+      if (!networkC.containsMouse && !networkOverlay.menuHoverArea.containsMouse) {
+        Core.Settings.networkMenuOpen = false
+      }
+    }
   }
 }
