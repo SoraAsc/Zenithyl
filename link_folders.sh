@@ -2,6 +2,9 @@ MODE="${1:-link}" #"link" # "copy" to copy, "link" to create symlink
 
 FOLDERS=(
   "./.config/quickshell/boby"
+  "./.config/fish"
+  "./.config/kitty"
+  "./.config/fastfetch"
 )
 
 BASE_CONFIG="$HOME/.config"

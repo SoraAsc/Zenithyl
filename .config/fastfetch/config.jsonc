@@ -1,0 +1,53 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "display": { 
+    "separator": "  "
+  },
+  "style": {
+    "keyWidth": 5
+  },
+  "logo": {
+    "type": "auto",
+    "source": "~/.config/fastfetch/current.png",
+    "height": 15,
+    "padding": {
+      //"top": 2,
+      "left": 2
+    }
+  },
+  "modules": [
+    // System Section
+    { 
+      "type": "custom",
+      "format": "{#blue}╭───────────── System ─────────────╮{#}"
+    },
+    { 
+      "type": "os",
+      "key": "│",
+      "format": "{#cyan}  {#}{name} {#dim_white}({arch}){#}          {#blue}│{#}",
+      "keyColor": "blue"
+    },
+    { 
+      "type": "uptime",
+      "key": "│",
+      "format": "{#cyan}󱫐  {#}{formatted}             {#blue}│{#}",
+      "keyColor": "blue"
+    },
+    { 
+      "type": "packages",
+      "key": "│",
+      "format": "{#cyan}󰏖  {#}{all} Pkgs {#dim_white}(pacman){#}            {#blue}│{#}",
+      "keyColor": "blue"
+    },
+    { 
+      "type": "shell",
+      "key": "│",
+      "format": "{#cyan}  {#}{pretty-name} {#dim_white}({version}){#}                 {#blue}│{#}",
+      "keyColor": "blue"
+    },
+    { 
+      "type": "custom",
+      "format": "{#blue}╰──────────────────────────────────╯{#}"
+    }
+  ]
+}
