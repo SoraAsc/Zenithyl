@@ -19,35 +19,69 @@
     // System Section
     { 
       "type": "custom",
-      "format": "{#blue}╭───────────── System ─────────────╮{#}"
+      "format": "{#blue}╭───────────── System{#}"
     },
     { 
       "type": "os",
       "key": "│",
-      "format": "{#cyan}  {#}{name} {#dim_white}({arch}){#}          {#blue}│{#}",
+      "format": "{#cyan}  {#}{name} {#dim_white}({arch}){#}",
       "keyColor": "blue"
     },
     { 
       "type": "uptime",
       "key": "│",
-      "format": "{#cyan}󱫐  {#}{formatted}             {#blue}│{#}",
+      "format": "{#cyan}󱫐  {#}{formatted}",
       "keyColor": "blue"
     },
     { 
       "type": "packages",
       "key": "│",
-      "format": "{#cyan}󰏖  {#}{all} Pkgs {#dim_white}(pacman){#}            {#blue}│{#}",
+      "format": "{#cyan}󰏖  {#}{all} Pkgs {#dim_white}(pacman){#}",
       "keyColor": "blue"
     },
     { 
       "type": "shell",
       "key": "│",
-      "format": "{#cyan}  {#}{pretty-name} {#dim_white}({version}){#}                 {#blue}│{#}",
+      "format": "{#cyan}  {#}{pretty-name} {#dim_white}({version}){#}",
+      "keyColor": "blue"
+    },
+    // Hardware Section
+    { 
+      "type": "custom",
+      "format": "{#blue}├──────────── Hardware"
+    },
+    { 
+      "type": "cpu",
+      "key": "│",
+      "format": "{#cyan}  {#bright_magenta}{name} {#dim_white}@ {freq-max}",
       "keyColor": "blue"
     },
     { 
-      "type": "custom",
-      "format": "{#blue}╰──────────────────────────────────╯{#}"
+      "type": "gpu",
+      "key": "│",
+      "format": "{#cyan}󰢮  {#bright_magenta}{name} {#dim_white}({vendor})",
+      "keyColor": "blue"
+    },
+    { 
+      "type": "memory",
+      "key": "│",
+      "format": "{#cyan}  {#bright_magenta}{used} / {total}",
+      "keyColor": "blue"
+    },
+    { 
+      "type": "disk",
+      "key": "│",
+      "format": "{#cyan}󰋊  {#bright_magenta}{size-used} / {size-total} {#}({size-percentage}) - {#dim_white}{filesystem}{#}",
+      "keyColor": "blue"
+    }, 
+    { 
+       "type": "custom",
+       "format": "{#blue}╰──────────── {#}"
+    },
+    {
+        "type": "colors",
+        "symbol": "circle",
+        "paddingLeft": 5
     }
   ]
 }
