@@ -11,3 +11,9 @@ neovim
 yazi
 fish
 fastfetch
+swww
+matugen
+sddm
+qt6-svg
+qt6-virtualkeyboard
+qt6-multimedia-ffmpeg

@@ -1,0 +1,7 @@
+vim.lsp.enable("vtsls")
+vim.lsp.enable("cssls")
+vim.lsp.enable("tailwincss")
+vim.lsp.enable("lua_ls")
+vim.lsp.enable("jsonls")
+vim.lsp.enable("html")
+vim.lsp.enable("eslint")
