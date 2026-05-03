@@ -3,7 +3,7 @@ import "../../core" as Core
 Rectangle {
     readonly property color mainColor: Core.Theme.outline
 
-    width: parent.width
+    width: 50
     height: 1
     color: mainColor
     opacity: 0.2
