@@ -1,9 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
-//import "../../components" as Components
 import "../../core" as Core
-
 Item {
     id: root
 
@@ -17,6 +15,20 @@ Item {
     Rectangle {
         anchors.fill: parent
         color: root.bgColor
+
+        topLeftRadius: 0
+        bottomLeftRadius: 0
+        topRightRadius: 0
+        bottomRightRadius: 0
+    }
+
+    ColumnLayout {
+        anchors.fill: parent
+        spacing: 0
+
+        SidebarTop {}
+        SidebarMiddle { }
+        SidebarBottom { }
     }
 
 }
