@@ -19,6 +19,10 @@ Singleton {
     watchChanges: true
     onFileChanged: reload()
 
+    function pick(v) {
+      return (typeof v === "string") ? v : v?.default.color
+    }
+
     onTextChanged: {
       try {
         const raw = text()
@@ -26,14 +30,15 @@ Singleton {
 
         const c = JSON.parse(raw).colors
         if (!c) return
-        root.primary          = c.primary.dark
-        root.secondary        = c.secondary.dark
-        root.tertiary         = c.tertiary.dark
-        root.background       = c.background.dark
-        root.surface          = c.surface.dark
-        root.surfaceContainer = c.surface_container.dark
-        root.onSurface        = c.on_surface.dark
-        root.outline          = c.outline.dark
+        root.primary          = pick(c.primary)
+        root.secondary        = pick(c.secondary)
+        root.tertiary         = pick(c.tertiary)
+        root.background       = pick(c.background)
+        root.surface          = pick(c.surface)
+        root.surfaceContainer = pick(c.surface_container)
+        root.onSurface        = pick(c.on_surface)
+        root.outline          = pick(c.outline)
+        
       } catch (e) {
         console.error("Theme: failed to parse colors.json: ", e)
       } 

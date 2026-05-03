@@ -1,14 +1,32 @@
-import Quickshell
 import QtQuick
-//import "components"
+import Quickshell
+import "modules/Sidebar" as Sidebar
 
 ShellRoot {
-  id: root
   Variants {
     model: Quickshell.screens
-    Scope {
-      id: scope
+
+    PanelWindow {
+      id: shell
+
       required property var modelData
+      screen: modelData
+
+      anchors {
+        left: true
+        top: true
+        bottom: true
+      }
+      implicitWidth: sidebar.width
+
+      color: "transparent"
+      exclusiveZone: sidebar.width
+      aboveWindows: false
+
+      Sidebar.Sidebar {
+        id: sidebar
+        anchors.fill: parent
+      }
     }
   }
 }

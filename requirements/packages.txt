@@ -11,7 +11,7 @@ neovim
 yazi
 fish
 fastfetch
-swww
+awww
 matugen
 sddm
 qt6-svg
