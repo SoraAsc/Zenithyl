@@ -36,10 +36,10 @@ Item {
     }
 
     ColumnLayout {
-        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.fill: parent
+        //anchors.horizontalCenter: parent.horizontalCenter
         //anchors.verticalCenter: parent.verticalCenter
-        //anchors.fill: parent
-        spacing: 0
+        spacing: -4
 
         SidebarTop {}
         Divider.HorizontalDivider {}

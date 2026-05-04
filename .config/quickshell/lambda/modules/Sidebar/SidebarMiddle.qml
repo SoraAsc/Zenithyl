@@ -4,7 +4,7 @@ import Quickshell.Io
 import "../../components" as Comp
 Item {
     id: root
-
+    Layout.fillHeight: true
     implicitWidth: parent?.width ?? 56
     implicitHeight: layout.implicitHeight + 16
 
