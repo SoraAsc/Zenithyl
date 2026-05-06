@@ -2,6 +2,8 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell.Io
 import "../../components" as Comp
+import "../HelpMenu" as Help
+
 Item {
     id: root
     Layout.fillHeight: true
@@ -12,6 +14,8 @@ Item {
         id: layout
         anchors.centerIn: parent
         spacing: 20
+
+        Help.HelpToggleButton {}
 
         Comp.CircularMetric {
             id: cpuGauge

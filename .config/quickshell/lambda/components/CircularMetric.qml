@@ -16,7 +16,7 @@ Item {
     property real criticalThreshold: 90
 
     // --- COLORS ---
-    property color normalColor: "#4caf50"
+    property color normalColor: Core.Theme.primary
     property color warningColor: "#ff9800"
     property color criticalColor: "#ec1313"
     

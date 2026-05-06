@@ -8,7 +8,7 @@ Item {
     id: root
 
     readonly property int sidebarWidth: 56
-    readonly property color bgColor: Core.Theme.surface
+    readonly property color bgColor: Core.Theme.surfaceContainerLow
 
     implicitWidth: sidebarWidth
     implicitHeight: parent?.height ?? 0

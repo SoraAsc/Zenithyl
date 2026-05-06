@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import "modules/Sidebar" as Sidebar
+import "modules/HelpMenu" as HelpMenu
 
 ShellRoot {
   Variants {
@@ -28,5 +29,10 @@ ShellRoot {
         anchors.fill: parent
       }
     }
+  }
+  Variants {
+    model: Quickshell.screens
+
+    HelpMenu.HelpWindow {}
   }
 }
