@@ -56,6 +56,7 @@ Item {
             HelpItem { key: "Super + B"; desc: "Open Web Browser" }
             HelpItem { key: "Super + Enter"; desc: "Open Terminal" }
             HelpItem { key: "Super + Space"; desc: "File Explorer" }
+            HelpItem { key: "Super + Q"; desc: "Close App" }
             HelpItem { key: "Super + ESC"; desc: "Open/Close Sidebar" }
         }
 
