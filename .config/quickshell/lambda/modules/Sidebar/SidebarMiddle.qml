@@ -17,6 +17,8 @@ Item {
 
         Help.HelpToggleButton {}
 
+        Comp.ClockWidget { }
+
         Comp.CircularMetric {
             id: cpuGauge
             size: 40

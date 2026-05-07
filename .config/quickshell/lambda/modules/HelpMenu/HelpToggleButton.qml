@@ -55,24 +55,29 @@ Item {
         anchors {
             left:           parent.right
             verticalCenter: parent.verticalCenter
-            leftMargin:     8
+            leftMargin:     12
         }
-        width:  tooltipText.implicitWidth + 16
-        height: 22
-        radius: 3
-        color:  Core.Theme.surface || "#0f0505"
-        border.color: Core.Theme.outline || "#2a1515"
+        width:  tooltipText.implicitWidth + 20
+        height: 26
+        radius: 6
+        color:  Core.Theme.surfaceContainerHighest
+        border.color: Core.Theme.outlineVariant
         border.width: 1
         visible: ma.containsMouse
         opacity: ma.containsMouse ? 1 : 0
-        Behavior on opacity { NumberAnimation { duration: 120 } }
+        Behavior on opacity { NumberAnimation { duration: 150 } }
 
         Text {
             id: tooltipText
             anchors.centerIn: parent
             text:  Core.HelpState.visible ? "CLOSE HELP" : "HELP"
             color: accentColor
-            font { family: "JetBrains Mono"; pixelSize: 9; letterSpacing: 1.5; weight: Font.Medium }
+            font {
+                family: "JetBrains Mono, Monospace"
+                pixelSize: 10
+                letterSpacing: 1.2
+                weight: Font.Bold
+            }
         }
     }
 

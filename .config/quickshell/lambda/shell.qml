@@ -18,15 +18,17 @@ ShellRoot {
         top: true
         bottom: true
       }
-      implicitWidth: sidebar.width
+      implicitWidth: sidebar.sidebarWidth + 150
 
       color: "transparent"
-      exclusiveZone: sidebar.width
+      exclusiveZone: sidebar.sidebarWidth
       aboveWindows: false
 
       Sidebar.Sidebar {
         id: sidebar
-        anchors.fill: parent
+        anchors.left: parent.left
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
       }
     }
   }
