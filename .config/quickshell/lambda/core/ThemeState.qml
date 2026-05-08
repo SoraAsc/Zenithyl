@@ -15,17 +15,33 @@ Singleton {
         { "name": "Loading...", "accent": "#ffffff", "bg": "#000000", "wallpaper": "" }
     ]
 
+    function parseThemes(raw) {
+        try {
+            if (!raw || raw.trim() === "") return false
+            const data = JSON.parse(raw)
+            if (Array.isArray(data) && data.length > 0) {
+                root.themes = data
+                return true
+            }
+        } catch (e) {
+            console.error("ThemeState: failed to parse themes JSON:", e)
+        }
+        return false
+    }
+
     FileView {
+        id: customThemes
         path: Quickshell.shellDir + "/assets/themes.json"
         onTextChanged: {
-            try {
-                const raw = text()
-                if (!raw || raw.trim() === "") return
-                const data = JSON.parse(raw)
-                if (Array.isArray(data) && data.length > 0) root.themes = data
-            } catch (e) {
-                console.error("ThemeState: failed to parse themes.json:", e)
-            }
+            if (!parseThemes(text())) parseThemes(defaultThemes.text())
+        }
+    }
+
+    FileView {
+        id: defaultThemes
+        path: Quickshell.shellDir + "/assets/themes.default.json"
+        onTextChanged: {
+            if (customThemes.text().trim() === "") parseThemes(text())
         }
     }
 

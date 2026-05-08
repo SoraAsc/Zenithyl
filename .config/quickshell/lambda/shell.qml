@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import "modules/Sidebar" as Sidebar
+import "modules/ThemeSelector" as ThemeSelector
 import "modules/HelpMenu" as HelpMenu
 
 ShellRoot {
@@ -32,6 +33,12 @@ ShellRoot {
       }
     }
   }
+  Variants {
+    model: Quickshell.screens
+
+    ThemeSelector.ThemeSelectorWindow {}
+  }
+
   Variants {
     model: Quickshell.screens
 

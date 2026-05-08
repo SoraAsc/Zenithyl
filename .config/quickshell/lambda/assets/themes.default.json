@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Bulbasaur",
+        "accent": "#66AA7F",
+        "bg": "#BF491F",
+        "wallpaper": "pkmn_bulbasaur_default_000.png"
+    },
+    {
+        "name": "Cinnamoroll",
+        "accent": "#FEFCFB",
+        "bg": "#2E578C",
+        "wallpaper": "snr_cinnamoroll_000.png"
+    },
+    {
+        "name": "Purple",
+        "accent": "#a194df",
+        "bg": "#1e084a",
+        "wallpaper": "purp_purple-haze_000.png"
+    }
+]

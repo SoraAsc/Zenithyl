@@ -1,1 +1,3 @@
 .config/fastfetch/current.*
+.config/quickshell/lambda/assets/themes/
+.config/quickshell/lambda/assets/themes.json

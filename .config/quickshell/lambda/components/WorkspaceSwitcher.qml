@@ -72,7 +72,6 @@ Item {
                        : baseY + shiftY
                    )
 
-                // === ANIMATIONS ===
                 Behavior on x {
                     NumberAnimation {
                         duration: 300
@@ -99,13 +98,12 @@ Item {
                     radius: wrapper.isActive ? width / 2 : 2
                     z: wrapper.isActive ? 10 : 1
 
-                    // === STYLE ===
                     color: wrapper.isActive
                            ? Core.Theme.primary
-                           : Qt.rgba(1, 1, 1, 0.15)
+                           : Qt.rgba(Core.Theme.outline.r, Core.Theme.outline.g, Core.Theme.outline.b, 0.2)
 
                     border.color: wrapper.isActive
-                                  ? Core.Theme.surface
+                                  ? Core.Theme.onPrimary
                                   : "transparent"
 
                     border.width: wrapper.isActive ? 1.5 : 0
@@ -131,7 +129,6 @@ Item {
                         ColorAnimation { duration: 500 }
                     }
 
-                    // === LABEL ===
                     Text {
                         anchors.centerIn: parent
                         text: NumberUtils.toRoman(wrapper.wsId)
@@ -139,7 +136,7 @@ Item {
                         font.pixelSize: 9
                         font.weight: Font.Bold
 
-                        color: Core.Theme.surface
+                        color: Core.Theme.onPrimary
 
                         opacity: wrapper.isActive ? 1 : 0
                         scale: wrapper.isActive ? 1 : 0.5

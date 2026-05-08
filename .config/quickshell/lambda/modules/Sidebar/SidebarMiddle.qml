@@ -15,6 +15,8 @@ Item {
         anchors.centerIn: parent
         spacing: 20
 
+        ThemeToggleButton {}
+
         Help.HelpToggleButton {}
 
         Comp.ClockWidget { }
