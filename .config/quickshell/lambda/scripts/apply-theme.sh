@@ -1,15 +1,19 @@
 #!/usr/bin/env bash
 
 WALLPAPER_PATH="$1"
+THEME_INDEX="$2"
 MATUGEN_OUTPUT="$HOME/.cache/matugen/colors.json"
+CACHE_DIR="$HOME/.cache/lambda"
+INDEX_FILE="$CACHE_DIR/theme_index"
 
 # LOG file for debugging
 LOG_FILE="/tmp/lambda-theme.log"
 echo "--- $(date) ---" > "$LOG_FILE"
 echo "Wallpaper: $WALLPAPER_PATH" >> "$LOG_FILE"
+echo "Theme Index: $THEME_INDEX" >> "$LOG_FILE"
 
 if [ -z "$WALLPAPER_PATH" ]; then
-    echo "Usage: $0 <wallpaper_path>"
+    echo "Usage: $0 <wallpaper_path> [theme_index]"
     exit 1
 fi
 
@@ -19,6 +23,12 @@ if [ ! -f "$WALLPAPER_PATH" ]; then
 fi
 
 mkdir -p "$(dirname "$MATUGEN_OUTPUT")"
+mkdir -p "$CACHE_DIR"
+
+# Save theme index if provided
+if [ -n "$THEME_INDEX" ]; then
+    echo "$THEME_INDEX" > "$INDEX_FILE"
+fi
 
 # 1. Update wallpaper live using awww
 if command -v awww &> /dev/null; then

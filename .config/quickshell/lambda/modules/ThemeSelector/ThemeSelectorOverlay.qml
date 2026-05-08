@@ -43,15 +43,33 @@ Item {
             Behavior on color { ColorAnimation { duration: 600 } }
         }
 
-        Image {
-            id: bgPreview
+        Loader {
+            id: bgPreviewLoader
             anchors.fill: parent
-            source: themes[previewIndex]?.wallpaper ? "file://" + Quickshell.shellDir + "/assets/themes/" + themes[previewIndex].wallpaper : ""
-            fillMode: Image.PreserveAspectCrop
+            sourceComponent: (themes[previewIndex]?.wallpaper && themes[previewIndex].wallpaper.toLowerCase().endsWith(".gif")) ? animBg : staticBg
             opacity: 0.12
-            visible: status === Image.Ready
             layer.enabled: true
             layer.effect: MultiEffect { blurEnabled: true; blur: 1.0; blurMax: 64 }
+
+            Component {
+                id: staticBg
+                Image {
+                    anchors.fill: parent
+                    source: themes[previewIndex]?.wallpaper ? "file://" + Quickshell.shellDir + "/assets/themes/" + themes[previewIndex].wallpaper : ""
+                    fillMode: Image.PreserveAspectCrop
+                    visible: status === Image.Ready
+                }
+            }
+
+            Component {
+                id: animBg
+                AnimatedImage {
+                    anchors.fill: parent
+                    source: themes[previewIndex]?.wallpaper ? "file://" + Quickshell.shellDir + "/assets/themes/" + themes[previewIndex].wallpaper : ""
+                    fillMode: Image.PreserveAspectCrop
+                    visible: status === AnimatedImage.Ready
+                }
+            }
         }
     }
 
@@ -203,7 +221,11 @@ Item {
                 onClicked: {
                     const theme = themes[previewIndex]
                     if (!theme) return
-                    themeProcess.command = [Quickshell.shellDir + "/scripts/apply-theme.sh", Quickshell.shellDir + "/assets/themes/" + theme.wallpaper]
+                    themeProcess.command = [
+                        Quickshell.shellDir + "/scripts/apply-theme.sh", 
+                        Quickshell.shellDir + "/assets/themes/" + theme.wallpaper,
+                        previewIndex.toString()
+                    ]
                     themeProcess.running = true
                     Core.ThemeState.selectedIndex = previewIndex
                     root.applyRequested(previewIndex, theme.name)

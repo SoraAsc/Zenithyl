@@ -24,24 +24,41 @@ Item {
         Behavior on scale { NumberAnimation { duration: 200; easing.type: Easing.OutCubic } }
 
         // Preview image
-        Image {
-            id: previewImage
+        Loader {
+            id: previewLoader
             anchors.fill: parent
-            source: {
-                if (!root.wallpaper) return ""
-                return "file://" + Quickshell.shellDir + "/assets/themes/" + root.wallpaper
+            sourceComponent: (root.wallpaper && root.wallpaper.toLowerCase().endsWith(".gif")) ? animatedComp : staticComp
+            
+            Component {
+                id: staticComp
+                Image {
+                    anchors.fill: parent
+                    source: "file://" + Quickshell.shellDir + "/assets/themes/" + root.wallpaper
+                    fillMode: Image.PreserveAspectCrop
+                    asynchronous: true
+                    visible: status === Image.Ready
+                    opacity: root.isSelected ? 0.95 : 0.7
+                    Behavior on opacity { NumberAnimation { duration: 300 } }
+                }
             }
-            fillMode: Image.PreserveAspectCrop
-            asynchronous: true
-            visible: status === Image.Ready
-            opacity: root.isSelected ? 0.95 : 0.7
-            Behavior on opacity { NumberAnimation { duration: 300 } }
+
+            Component {
+                id: animatedComp
+                AnimatedImage {
+                    anchors.fill: parent
+                    source: "file://" + Quickshell.shellDir + "/assets/themes/" + root.wallpaper
+                    fillMode: Image.PreserveAspectCrop
+                    visible: status === AnimatedImage.Ready
+                    opacity: root.isSelected ? 0.95 : 0.7
+                    Behavior on opacity { NumberAnimation { duration: 300 } }
+                }
+            }
         }
 
         // Fallback gradient
         Rectangle {
             anchors.fill: parent
-            visible: previewImage.status !== Image.Ready
+            visible: previewLoader.item && previewLoader.item.status !== Image.Ready && previewLoader.item.status !== AnimatedImage.Ready
             gradient: Gradient {
                 orientation: Gradient.Vertical
                 GradientStop { position: 0.0; color: Qt.darker(root.accentColor, 3.5) }
