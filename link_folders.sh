@@ -1,7 +1,6 @@
 MODE="${1:-link}" #"link" # "copy" to copy, "link" to create symlink
 
 FOLDERS=(
-  "./.config/quickshell/boby"
   "./.config/quickshell/lambda"
   "./.config/fish"
   "./.config/kitty"
