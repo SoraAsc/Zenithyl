@@ -1,5 +1,7 @@
 kitty
 rofi
+zip
+unzip
 dolphin
 dunst
 cliphist
