@@ -26,4 +26,13 @@ echo "Linking folders..."
 bash "$MOVER_SCRIPT" "$MODE"
 echo "Folders linked successfully."
 
+# Initialize QuickShell Lambda if requested
+if [ "$INSTALL" = "install" ]; then
+  if [ -f "./init-quickshell-lambda.sh" ]; then
+    echo ""
+    echo "Initializing QuickShell Lambda..."
+    bash "./init-quickshell-lambda.sh"
+  fi
+fi
+
 echo "Setup complete!"

@@ -46,7 +46,7 @@ Item {
         Loader {
             id: bgPreviewLoader
             anchors.fill: parent
-            sourceComponent: (themes[previewIndex]?.wallpaper && themes[previewIndex].wallpaper.toLowerCase().endsWith(".gif")) ? animBg : staticBg
+            sourceComponent: (themes[previewIndex]?.wallpaper && themes[previewIndex].wallpaper.toLowerCase().endsWith(".gif")) ? animBg : (themes[previewIndex]?.wallpaper ? staticBg : null)
             opacity: 0.12
             layer.enabled: true
             layer.effect: MultiEffect { blurEnabled: true; blur: 1.0; blurMax: 64 }
@@ -220,7 +220,7 @@ Item {
                 id: applyMa; anchors.fill: parent; hoverEnabled: true; cursorShape: Qt.PointingHandCursor
                 onClicked: {
                     const theme = themes[previewIndex]
-                    if (!theme) return
+                    if (!theme || !theme.wallpaper) return
                     themeProcess.command = [
                         Quickshell.shellDir + "/scripts/apply-theme.sh", 
                         Quickshell.shellDir + "/assets/themes/" + theme.wallpaper,

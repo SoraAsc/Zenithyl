@@ -27,13 +27,13 @@ Item {
         Loader {
             id: previewLoader
             anchors.fill: parent
-            sourceComponent: (root.wallpaper && root.wallpaper.toLowerCase().endsWith(".gif")) ? animatedComp : staticComp
+            sourceComponent: (root.wallpaper && root.wallpaper.toLowerCase().endsWith(".gif")) ? animatedComp : (root.wallpaper ? staticComp : null)
             
             Component {
                 id: staticComp
                 Image {
                     anchors.fill: parent
-                    source: "file://" + Quickshell.shellDir + "/assets/themes/" + root.wallpaper
+                    source: root.wallpaper ? "file://" + Quickshell.shellDir + "/assets/themes/" + root.wallpaper : ""
                     fillMode: Image.PreserveAspectCrop
                     asynchronous: true
                     visible: status === Image.Ready
@@ -46,7 +46,7 @@ Item {
                 id: animatedComp
                 AnimatedImage {
                     anchors.fill: parent
-                    source: "file://" + Quickshell.shellDir + "/assets/themes/" + root.wallpaper
+                    source: root.wallpaper ? "file://" + Quickshell.shellDir + "/assets/themes/" + root.wallpaper : ""
                     fillMode: Image.PreserveAspectCrop
                     visible: status === AnimatedImage.Ready
                     opacity: root.isSelected ? 0.95 : 0.7

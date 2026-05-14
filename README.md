@@ -47,6 +47,12 @@
      sudo pacman -S nvidia-dkms nvidia-utils lib32-nvidia-utils vulkan-icd-loader lib32-vulkan-icd-loader
      ```
 
+   - **QuickShell Lambda initialization:**
+     ```
+     ./init-quickshell-lambda.sh
+     ```
+     This script initializes the color cache and theme index required by QuickShell Lambda. Run this after the main installation.
+
 ## Requirements Analysis
 The files in `requirements/` contain lists of packages to install:
 - `packages.txt`: Official Arch packages (kitty, neovim, etc.)
@@ -65,3 +71,17 @@ The files in `requirements/` contain lists of packages to install:
    ```
 - **Installation errors:** The script continues even if a package fails. Check logs and reinstall manually if needed.
 - **Permissions:** Run as a user with sudo access.
+
+## QuickShell Lambda Configuration
+
+If QuickShell Lambda is not displaying components or showing warnings about missing theme files:
+
+1. **Run the initialization script:**
+   ```bash
+   ./init-quickshell-lambda.sh
+   ```
+
+2. **Restart QuickShell:**
+   ```bash
+   killall qs && qs -c lambda
+   ```
