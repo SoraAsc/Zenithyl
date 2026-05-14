@@ -6,6 +6,7 @@ FOLDERS=(
   "./.config/kitty"
   "./.config/fastfetch"
   "./.config/nvim"
+  "./.config/hypr"
 )
 
 BASE_CONFIG="$HOME/.config"
