@@ -55,6 +55,13 @@ The files in `requirements/` contain lists of packages to install:
 
 ### Potential Issues and Solutions
 - **Packages not found:** Ensure the system is updated (`sudo pacman -Syu`). AUR packages may change; use `yay -Ss <package>` to check.
-- **yay not installed:** Install with `sudo pacman -S yay`.
+- **yay not installed:** Install it from the AUR:
+
+   ```bash
+   sudo pacman -S --needed base-devel git
+   git clone https://aur.archlinux.org/yay.git
+   cd yay
+   makepkg -si
+   ```
 - **Installation errors:** The script continues even if a package fails. Check logs and reinstall manually if needed.
 - **Permissions:** Run as a user with sudo access.
